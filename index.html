@@ -16,6 +16,16 @@
   <!-- Meta data -->
   <meta name="keywords" content="Java, J2EE, Spring, Spring batch, Springboot, IBM MDM, Master Data Management, Unix, SQL" />
   <link rel="stylesheet" href="index.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SX9BV2L15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8SX9BV2L15'); // Replace with your Measurement ID
+  </script>
+
 </head>
 
 <body>
@@ -239,7 +249,47 @@
   </section>
 
   <!-- ***** Footer ***** -->
+<!-- Visitor counter element - place where you want the count to appear -->
+<div id="visitor-counter" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+">
+  Loading visit count...
+</div>
 
+<!-- Counter script -->
+<script>
+// Use your GitHub username or domain as the namespace to make it unique
+const namespace = 'salimsema-portfolio'; // CHANGE THIS to make it unique to you
+
+// Function to update the counter
+function updateCounter() {
+    // First try to get the current count
+    fetch(`https://api.countapi.xyz/get/${namespace}/visits`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('visitor-counter').textContent = `Visits: ${data.value}`;
+        })
+        .catch(error => {
+            console.error('Error getting count:', error);
+            document.getElementById('visitor-counter').textContent = 'Visits: -';
+        });
+
+    // Then increment the count (this happens after page load)
+    fetch(`https://api.countapi.xyz/hit/${namespace}/visits`)
+        .catch(error => console.error('Error incrementing count:', error));
+}
+
+// Update counter when page loads
+window.addEventListener('DOMContentLoaded', updateCounter);
+</script>
   <footer role="contentinfo" class="footer">
     <div class="row">
       <!-- Update the links to point to your accounts -->
