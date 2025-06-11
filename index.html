@@ -261,34 +261,9 @@
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 ">
-  Loading visit count...
+    <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fsalimsema.github.io%2Fportfolio%2F&label=salim-portfolio&icon=github&color=%23198754">
 </div>
 
-<!-- Counter script -->
-<script>
-// Use your GitHub username or domain as the namespace to make it unique
-const namespace = 'salimsema-portfolio'; // CHANGE THIS to make it unique to you
-
-// Function to update the counter
-function updateCounter() {
-    // First try to get the current count
-    fetch(`https://api.countapi.xyz/get/${namespace}/visits`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('visitor-counter').textContent = `Visits: ${data.value}`;
-        })
-        .catch(error => {
-            console.error('Error getting count:', error);
-            document.getElementById('visitor-counter').textContent = 'Visits: -';
-        });
-
-    // Then increment the count (this happens after page load)
-    fetch(`https://api.countapi.xyz/hit/${namespace}/visits`)
-        .catch(error => console.error('Error incrementing count:', error));
-}
-
-// Update counter when page loads
-window.addEventListener('DOMContentLoaded', updateCounter);
 </script>
   <footer role="contentinfo" class="footer">
     <div class="row">
